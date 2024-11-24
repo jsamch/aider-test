@@ -21,19 +21,21 @@ module counter_tb;
 
     // Test sequence
     initial begin
-        // Initialize reset
+        $display("Starting test: Initial reset");
         reset = 1;
         #10;
         reset = 0;
+        $display("Initial reset complete, counter should start counting");
 
-        // Wait for some time and then reset again
         #100;
+        $display("Applying second reset");
         reset = 1;
         #10;
         reset = 0;
+        $display("Second reset complete, counter should restart");
 
-        // Finish the simulation after some time
         #200;
+        $display("Test complete, finishing simulation");
         $finish;
     end
 
