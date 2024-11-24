@@ -19,7 +19,11 @@ module counter_tb;
         forever #5 clk = ~clk; // 100MHz clock
     end
 
-    // Test sequence
+    // VCD dump
+    initial begin
+        $dumpfile("counter_tb.vcd");
+        $dumpvars(0, counter_tb);
+    end
     initial begin
         $display("Starting test: Initial reset");
         reset = 1;
