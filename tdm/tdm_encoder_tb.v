@@ -1,14 +1,24 @@
 `timescale 1ns / 1ps
 
+/**
+ * Testbench for TDM Encoder
+ * 
+ * This testbench simulates the TDM encoder module by providing clock and
+ * channel inputs, and observing the serial output and sync pulse.
+ */
 module tdm_encoder_tb;
 
+    // Clock signal
     reg clk;
+    // 8-bit input channels
     reg [7:0] channel1;
     reg [7:0] channel2;
     reg [7:0] channel3;
+    // Outputs from the TDM encoder
     wire serial_out;
     wire sync_pulse;
 
+    // Instantiate the TDM encoder module
     tdm_encoder uut (
         .clk(clk),
         .channel1(channel1),
@@ -18,6 +28,7 @@ module tdm_encoder_tb;
         .sync_pulse(sync_pulse)
     );
 
+    // Initial block to set up the simulation
     initial begin
         clk = 0;
         channel1 = 8'b10101010;
@@ -27,6 +38,7 @@ module tdm_encoder_tb;
         #1000 $finish;
     end
 
+    // Clock generation with a period of 10 time units
     always #5 clk = ~clk;
 
 endmodule
