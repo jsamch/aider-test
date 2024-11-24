@@ -30,6 +30,10 @@ module tdm_encoder_tb;
 
     // Initial block to set up the simulation
     initial begin
+        // Open a VCD file to capture the simulation waveforms
+        $dumpfile("tdm_encoder.vcd");
+        $dumpvars(0, tdm_encoder_tb);
+
         clk = 0;
         channel1 = 8'b10101010;
         channel2 = 8'b11001100;
