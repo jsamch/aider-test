@@ -1,5 +1,5 @@
 # Use an official Icarus Verilog image
-FROM yosyshq/iverilog:latest
+FROM esolang/verilog
 
 # Set the working directory
 WORKDIR /usr/src/app
